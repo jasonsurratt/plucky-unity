@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace knockback
+namespace Plucky.Unity
 {
     public static class MonoBehaviourExtensions
     {
@@ -55,21 +55,6 @@ namespace knockback
             }
 
             return result;
-        }
-
-        public static void Log(this MonoBehaviour mb, string msg)
-        {
-            GameManager.log.Log(mb.GetType().Name, msg);
-        }
-
-        public static void LogError(this MonoBehaviour mb, string msg)
-        {
-            GameManager.log.LogError(mb.GetType().Name, msg, mb);
-        }
-
-        public static void LogWarning(this MonoBehaviour mb, string msg)
-        {
-            GameManager.log.LogWarning(mb.GetType().Name, msg);
         }
 
         public static float MinimumDistance<T>(this IEnumerable<T> it, Vector3 pos) where T : MonoBehaviour
