@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Plucky.Common
+namespace Plucky.Unity
 {
     public static class BoundsExtensions
     {

@@ -1,7 +1,6 @@
-﻿using Plucky.Common;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace knockback
+namespace Plucky.Unity
 {
     public static class GameObjectExtentions
     {
