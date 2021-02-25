@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Plucky.Unity
+namespace Plucky.UnityExtensions
 {
     public static class MonoBehaviourExtensions
     {
