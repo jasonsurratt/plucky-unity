@@ -50,6 +50,69 @@ namespace Plucky.Unity
             return null;
         }
 
+        /// Make a best effort to determine the game object's bounds in world coordinates.
+        public static Bounds GetBounds(this GameObject go)
+        {
+            bool boundsSet = false;
+            Bounds b = BoundsExtensions.invalid;
+
+            Collider[] colliders = go.GetComponentsInChildren<Collider>();
+            foreach (Collider c in colliders)
+            {
+                if (c.isTrigger)
+                {
+                    continue;
+                }
+                if (!boundsSet)
+                {
+                    boundsSet = true;
+                    b = c.bounds;
+                }
+                else
+                {
+                    b.Encapsulate(c.bounds);
+                }
+            }
+            if (boundsSet)
+            {
+                return b;
+            }
+
+
+            Renderer[] renderers = go.GetComponentsInChildren<Renderer>();
+            foreach (Renderer r in renderers)
+            {
+                if (!boundsSet)
+                {
+                    boundsSet = true;
+                    b = r.bounds;
+                }
+                else
+                {
+                    b.Encapsulate(r.bounds);
+                }
+            }
+
+            // if the bounds still aren't set, fall back and use triggers
+            if (!boundsSet)
+            {
+                foreach (Collider c in colliders)
+                {
+                    if (!boundsSet)
+                    {
+                        boundsSet = true;
+                        b = c.bounds;
+                    }
+                    else
+                    {
+                        b.Encapsulate(c.bounds);
+                    }
+                }
+            }
+
+            return b;
+        }
+
         public static T GetOrAddComponent<T>(this GameObject go) where T : Component
         {
             T result = go.GetComponent<T>();
