@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Plucky.Unity
+namespace Plucky.UnityExtensions
 {
     public static class TransformExtensions
     {
