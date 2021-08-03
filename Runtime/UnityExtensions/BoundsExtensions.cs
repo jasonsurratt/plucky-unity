@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace Plucky.UnityExtensions
 {
@@ -96,10 +96,11 @@ namespace Plucky.UnityExtensions
 
         public static Bounds Intersection(this Bounds bounds, Bounds other)
         {
-            Bounds result = new Bounds();
-
-            result.min = Vector3.Max(bounds.min, other.min);
-            result.max = Vector3.Min(bounds.max, other.max);
+            Bounds result = new Bounds
+            {
+                min = Vector3.Max(bounds.min, other.min),
+                max = Vector3.Min(bounds.max, other.max)
+            };
 
             return result;
         }
