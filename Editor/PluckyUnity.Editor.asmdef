@@ -1,0 +1,18 @@
+{
+    "name": "PluckyUnityEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6d4bd7b62b2a6a54a83e5286d3c7cce0"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
