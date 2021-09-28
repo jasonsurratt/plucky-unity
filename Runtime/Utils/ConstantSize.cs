@@ -11,7 +11,7 @@ namespace Plucky.Unity
         public float initialScale = -1;
 
         // Use this for initialization
-        protected void Start()
+        protected void Awake()
         {
             if (initialScale <= 0) initialScale = transform.lossyScale.x;
         }
@@ -19,7 +19,7 @@ namespace Plucky.Unity
         // Update is called once per frame
         protected void Update()
         {
-            float scale = transform.lossyScale.x;
+            float scale = Mathf.Max(1e-4f, transform.lossyScale.x);
             transform.localScale *= initialScale / scale;
         }
     }
