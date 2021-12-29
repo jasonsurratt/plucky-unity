@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Plucky.Unity
@@ -80,7 +81,7 @@ namespace Plucky.Unity
             Vector3[] worldCorners = new Vector3[4];
             canvas.GetComponent<RectTransform>().GetWorldCorners(worldCorners);
 
-            Vector3 pos = Input.mousePosition;
+            Vector3 pos = Mouse.current.position.ReadValue();
             Vector2 pivot = _tipDisplay.GetComponent<RectTransform>().pivot;
 
             float offset = 10;

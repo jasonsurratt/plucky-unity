@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Plucky.Unity
@@ -9,7 +10,7 @@ namespace Plucky.Unity
     public class KeyPressCapture : MonoBehaviour
     {
         public UnityEvent keyPressEvent;
-        public KeyCode keyCode;
+        public Key keyCode;
 
         [Tooltip("If onlyOnFocus is set, the event will only be fired if onlyOnFocus has focus.")]
         public bool hadFocus = false;
@@ -17,7 +18,7 @@ namespace Plucky.Unity
 
         protected void Update()
         {
-            if (Input.GetKeyDown(keyCode) &&
+            if (Keyboard.current[keyCode].wasPressedThisFrame &&
                 (onlyOnFocus == null || hadFocus))
             {
                 keyPressEvent.Invoke();
